@@ -1409,146 +1409,7 @@ h5{font-size:18.5px!important;}
     }catch(ex){}
   },true);
 })();
-</script><script id="wy-protection">
-(function(){
-  "use strict";
-  var ALLOWED_HOST = 'weiwen0925.github.io';
-  var ALLOWED_PATH = '/dazhidulun-42/';
-  var XOR_KEY      = 'wy42dazhidulun';
-
-  /* ---- 純白鎖定（無任何文字）---- */
-  function _silentLock(){
-    try{
-      // 標記，CSS 使整頁透明白
-      document.documentElement.classList.add('wy-locked');
-      // 多重保險：直接清空 body
-      if(document.body){
-        document.body.innerHTML = '';
-        document.body.style.background = '#fff';
-      }
-      // 攔截所有後續輸入
-      ['contextmenu','copy','cut','keydown','keyup','keypress','mousedown','mouseup','click'].forEach(function(ev){
-        window.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); }, true);
-      });
-    }catch(e){}
-  }
-
-  /* ---- L8/B · webdriver / headless 偵測 ---- */
-  try{
-    if(navigator.webdriver === true) return _silentLock();
-    var ua = navigator.userAgent || '';
-    if(/HeadlessChrome|PhantomJS|Selenium|puppeteer|playwright|electron/i.test(ua)) return _silentLock();
-    if(window.callPhantom || window._phantom) return _silentLock();
-  }catch(e){}
-
-  /* ---- L4 · Origin Lock 同步檢查（嚴格：必須 https + 正確 host + 正確 path）---- */
-  var _proto = (location.protocol || '').toLowerCase();
-  try{
-    if(_proto !== 'https:' && _proto !== 'http:') return _silentLock();
-    var h = location.hostname || '';
-    var p = location.pathname || '/';
-    if(ALLOWED_HOST && h !== ALLOWED_HOST) return _silentLock();
-    if(ALLOWED_PATH && p.indexOf(ALLOWED_PATH) !== 0) return _silentLock();
-  }catch(e){ return _silentLock(); }
-
-  /* ---- L2 · 列印攔截 ---- */
-  try{
-    window.print = function(){};
-    document.addEventListener('keydown', function(e){
-      var k = e.key;
-      if((e.metaKey || e.ctrlKey) && (k === 'p' || k === 'P' || k === 's' || k === 'S')){
-        e.preventDefault(); e.stopPropagation();
-      }
-    }, true);
-    window.addEventListener('beforeprint', function(){
-      document.documentElement.classList.add('wy-locked');
-    });
-    window.addEventListener('afterprint', function(){
-      document.documentElement.classList.remove('wy-locked');
-    });
-  }catch(e){}
-
-  /* ---- L6 · 線上活性驗證 + L1/L5 解碼 ---- */
-  // XOR 還原 + base64 decode
-  function _xor(s, key){
-    var out = '', klen = key.length;
-    for(var i=0;i<s.length;i++){
-      out += String.fromCharCode(s.charCodeAt(i) ^ key.charCodeAt(i % klen));
-    }
-    return out;
-  }
-  function _b64xorDecode(b64){
-    try{
-      var bin = atob(b64);
-      // base64 -> binary string -> UTF-8 chars
-      var bytes = new Uint8Array(bin.length);
-      for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
-      var utf8 = new TextDecoder('utf-8').decode(bytes);
-      return _xor(utf8, XOR_KEY);
-    }catch(e){ return ''; }
-  }
-  function _decodeAll(){
-    document.querySelectorAll('[data-wy-l1]:not([data-wy-decoded])').forEach(function(el){
-      el.innerHTML = _b64xorDecode(el.getAttribute('data-wy-l1'));
-      el.setAttribute('data-wy-decoded','1');
-    });
-    document.querySelectorAll('[data-wy-l5]:not([data-wy-decoded])').forEach(function(el){
-      el.innerHTML = _b64xorDecode(el.getAttribute('data-wy-l5'));
-      el.setAttribute('data-wy-decoded','1');
-    });
-  }
-
-  // wyReady promise: 通過 freshness ping 才解碼
-  var _resolve, _reject;
-  window.__wyReady = new Promise(function(res, rej){ _resolve = res; _reject = rej; });
-
-  function _unlock(){
-    document.documentElement.classList.add('wy-unlocked');
-  }
-  function _afterReady(){
-    _decodeAll();
-    _unlock();
-    if(_resolve) _resolve();
-  }
-
-  // 線上嚴格驗證：HEAD ping 真實 URL
-  {
-    var pingURL = location.protocol + '//' + location.host + ALLOWED_PATH +
-                  '?_wyping=' + Date.now() + '.' + Math.random().toString(36).slice(2);
-    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-    var pingTimeout = setTimeout(function(){
-      try{ ctrl && ctrl.abort(); }catch(e){}
-      _silentLock();
-    }, 6000);
-    fetch(pingURL, {
-      method:'HEAD', cache:'no-store', mode:'cors', credentials:'omit',
-      signal: ctrl ? ctrl.signal : undefined
-    }).then(function(r){
-      clearTimeout(pingTimeout);
-      if(!r || r.status >= 400){ return _silentLock(); }
-      _afterReady();
-    }).catch(function(){
-      clearTimeout(pingTimeout);
-      _silentLock();
-    });
-  }
-
-  /* ---- 防複製/反白/拖曳/F12 ---- */
-  ['contextmenu','copy','cut','selectstart','dragstart'].forEach(function(ev){
-    document.addEventListener(ev, function(e){ e.preventDefault(); }, true);
-  });
-  document.addEventListener('keydown', function(e){
-    var k = e.key;
-    if(k === 'F12') return e.preventDefault();
-    if(e.ctrlKey && e.shiftKey && /^(I|J|C|K)$/.test(k)) return e.preventDefault();
-    if((e.metaKey||e.ctrlKey) && /^(c|C|a|A|s|S|p|P|u|U|x|X)$/.test(k)) return e.preventDefault();
-  }, true);
-  setInterval(function(){
-    if(window.getSelection){ try{ window.getSelection().removeAllRanges(); }catch(e){} }
-  }, 300);
-})();
-</script>
-</body></html>" loading="lazy"></iframe>
+</script></body></html>" loading="lazy"></iframe>
       <div class="bridge bridge-outro">
         <div class="bridge-label">承先啟後</div>
         <p data-wy-l5="5p2b5ZK45b6q6aC66I6N5o6x55iG5ZSn6Imu5Luw552L6Zqq5pSW5Ymp5YSS77215bCz44C+6Kqc5rK05Lm35Y6H5b++44Gp5Li+6YOj6L2a5o+G5YmH5qSM6IeA77yp5Lmv5Lmh5ZK75Yiv55WY44Go5YCy5ZGh6I6c6JeH44G65YSc5om/77y+5LqB44Gt55SK6Zeo44Gk5Liv6YGH6LaD57u56Yal5qyT57+Q4pS04pSy5Lmp5Yes5Y6Q5b+25Lu9552a55ux5bCI6ZyX6Kq46Kud77216IC45b6s6I6N6JeI5ZG35ay/55ut5qav5oml6Imr5Lm45Z6Z6JCg77215Ya55qyT6aCL56Wb44G26Zqu5pSK55qc5Lm45Y6D5b+i44Gj55uz5YSe5Zyc6YGh55Gi44Gj"></p>
@@ -6420,6 +6281,145 @@ updateActive();
     if(k==='F12')blk(e);
     if(e.ctrlKey&&e.shiftKey&&(k==='I'||k==='J'||k==='C'||k==='K')){blk(e);}
   },true);
+})();
+</script>
+<script id="wy-protection">
+(function(){
+  "use strict";
+  var ALLOWED_HOST = 'weiwen0925.github.io';
+  var ALLOWED_PATH = '/dazhidulun-42/';
+  var XOR_KEY      = 'wy42dazhidulun';
+
+  /* ---- 純白鎖定（無任何文字）---- */
+  function _silentLock(){
+    try{
+      // 標記，CSS 使整頁透明白
+      document.documentElement.classList.add('wy-locked');
+      // 多重保險：直接清空 body
+      if(document.body){
+        document.body.innerHTML = '';
+        document.body.style.background = '#fff';
+      }
+      // 攔截所有後續輸入
+      ['contextmenu','copy','cut','keydown','keyup','keypress','mousedown','mouseup','click'].forEach(function(ev){
+        window.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); }, true);
+      });
+    }catch(e){}
+  }
+
+  /* ---- L8/B · webdriver / headless 偵測 ---- */
+  try{
+    if(navigator.webdriver === true) return _silentLock();
+    var ua = navigator.userAgent || '';
+    if(/HeadlessChrome|PhantomJS|Selenium|puppeteer|playwright|electron/i.test(ua)) return _silentLock();
+    if(window.callPhantom || window._phantom) return _silentLock();
+  }catch(e){}
+
+  /* ---- L4 · Origin Lock 同步檢查（嚴格：必須 https + 正確 host + 正確 path）---- */
+  var _proto = (location.protocol || '').toLowerCase();
+  try{
+    if(_proto !== 'https:' && _proto !== 'http:') return _silentLock();
+    var h = location.hostname || '';
+    var p = location.pathname || '/';
+    if(ALLOWED_HOST && h !== ALLOWED_HOST) return _silentLock();
+    if(ALLOWED_PATH && p.indexOf(ALLOWED_PATH) !== 0) return _silentLock();
+  }catch(e){ return _silentLock(); }
+
+  /* ---- L2 · 列印攔截 ---- */
+  try{
+    window.print = function(){};
+    document.addEventListener('keydown', function(e){
+      var k = e.key;
+      if((e.metaKey || e.ctrlKey) && (k === 'p' || k === 'P' || k === 's' || k === 'S')){
+        e.preventDefault(); e.stopPropagation();
+      }
+    }, true);
+    window.addEventListener('beforeprint', function(){
+      document.documentElement.classList.add('wy-locked');
+    });
+    window.addEventListener('afterprint', function(){
+      document.documentElement.classList.remove('wy-locked');
+    });
+  }catch(e){}
+
+  /* ---- L6 · 線上活性驗證 + L1/L5 解碼 ---- */
+  // XOR 還原 + base64 decode
+  function _xor(s, key){
+    var out = '', klen = key.length;
+    for(var i=0;i<s.length;i++){
+      out += String.fromCharCode(s.charCodeAt(i) ^ key.charCodeAt(i % klen));
+    }
+    return out;
+  }
+  function _b64xorDecode(b64){
+    try{
+      var bin = atob(b64);
+      // base64 -> binary string -> UTF-8 chars
+      var bytes = new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+      var utf8 = new TextDecoder('utf-8').decode(bytes);
+      return _xor(utf8, XOR_KEY);
+    }catch(e){ return ''; }
+  }
+  function _decodeAll(){
+    document.querySelectorAll('[data-wy-l1]:not([data-wy-decoded])').forEach(function(el){
+      el.innerHTML = _b64xorDecode(el.getAttribute('data-wy-l1'));
+      el.setAttribute('data-wy-decoded','1');
+    });
+    document.querySelectorAll('[data-wy-l5]:not([data-wy-decoded])').forEach(function(el){
+      el.innerHTML = _b64xorDecode(el.getAttribute('data-wy-l5'));
+      el.setAttribute('data-wy-decoded','1');
+    });
+  }
+
+  // wyReady promise: 通過 freshness ping 才解碼
+  var _resolve, _reject;
+  window.__wyReady = new Promise(function(res, rej){ _resolve = res; _reject = rej; });
+
+  function _unlock(){
+    document.documentElement.classList.add('wy-unlocked');
+  }
+  function _afterReady(){
+    _decodeAll();
+    _unlock();
+    if(_resolve) _resolve();
+  }
+
+  // 線上嚴格驗證：HEAD ping 真實 URL
+  {
+    var pingURL = location.protocol + '//' + location.host + ALLOWED_PATH +
+                  '?_wyping=' + Date.now() + '.' + Math.random().toString(36).slice(2);
+    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var pingTimeout = setTimeout(function(){
+      try{ ctrl && ctrl.abort(); }catch(e){}
+      _silentLock();
+    }, 6000);
+    fetch(pingURL, {
+      method:'HEAD', cache:'no-store', mode:'cors', credentials:'omit',
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function(r){
+      clearTimeout(pingTimeout);
+      if(!r || r.status >= 400){ return _silentLock(); }
+      _afterReady();
+    }).catch(function(){
+      clearTimeout(pingTimeout);
+      _silentLock();
+    });
+  }
+
+  /* ---- 防複製/反白/拖曳/F12 ---- */
+  ['contextmenu','copy','cut','selectstart','dragstart'].forEach(function(ev){
+    document.addEventListener(ev, function(e){ e.preventDefault(); }, true);
+  });
+  document.addEventListener('keydown', function(e){
+    var k = e.key;
+    if(k === 'F12') return e.preventDefault();
+    if(e.ctrlKey && e.shiftKey && /^(I|J|C|K)$/.test(k)) return e.preventDefault();
+    if((e.metaKey||e.ctrlKey) && /^(c|C|a|A|s|S|p|P|u|U|x|X)$/.test(k)) return e.preventDefault();
+  }, true);
+  setInterval(function(){
+    if(window.getSelection){ try{ window.getSelection().removeAllRanges(); }catch(e){} }
+  }, 300);
 })();
 </script>
 </body>
