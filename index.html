@@ -1011,5 +1011,58 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-C42P4:END-->
+<!--WY-C42P5:BEGIN-->
+<style id="wy-c42p5-css">
+.c42p5-fabbox{position:fixed;right:22px;bottom:78px;z-index:121;display:none;}
+.c42p5-fabbox.show{display:block;}
+.c42p5-btn{display:inline-flex;align-items:center;gap:9px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;color:#f7ecd2;background:linear-gradient(135deg,#573f38,#2e2420);padding:8px 15px;border-radius:22px;border:1px solid rgba(184,134,11,.6);box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;opacity:.96;transition:opacity .3s,transform .2s,box-shadow .2s;}
+.c42p5-btn:hover{opacity:1;transform:translateY(-2px);box-shadow:0 6px 22px rgba(184,134,11,.5);}
+.c42p5-ic{font-size:15px;line-height:1;color:#ecc978;}
+.c42p5-ls{display:flex;flex-direction:column;align-items:flex-start;line-height:1.22;}
+.c42p5-l1{font-size:10.5px;font-weight:500;opacity:.82;white-space:nowrap;}
+.c42p5-l2{font-size:13px;font-weight:700;color:#faf1d8;white-space:nowrap;}
+.c42p5-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(28,20,12,.58);padding:16px;}
+.c42p5-modal.open{display:flex;}
+.c42p5-card{position:relative;background:#fbf7ee;max-width:900px;width:100%;max-height:88vh;overflow:auto;border:1px solid #d8c8ac;border-radius:14px;padding:30px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
+.c42p5-card h3{margin:0 0 2px;font-family:"Noto Serif TC",serif;font-size:20px;color:#8b5e3c;}
+.c42p5-card .sub{margin:0 0 14px;font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#6b5b4b;}
+.c42p5-close{position:absolute;top:12px;right:16px;width:34px;height:34px;border:none;border-radius:50%;background:#efe6d4;color:#8b5e3c;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+.c42p5-close:hover{background:#e3d5b8;}
+.c42p5-tbl{width:100%;border-collapse:collapse;font-family:"Noto Sans TC",sans-serif;font-size:13px;margin:.3em 0 1.2em;}
+.c42p5-tbl caption{font-family:"Noto Serif TC",serif;font-weight:700;color:#8b5e3c;font-size:14.5px;text-align:left;margin:.6em 0 .35em;line-height:1.5;}
+.c42p5-tbl th,.c42p5-tbl td{border:1px solid #d8c8ac;padding:.45em .6em;text-align:left;vertical-align:top;line-height:1.6;}
+.c42p5-tbl thead th{background:#8b5e3c;color:#f7ecd2;font-weight:700;}
+.c42p5-tbl td:first-child{white-space:nowrap;color:#8b5e3c;font-weight:700;background:#f0e8d8;}
+.c42p5-tbl tbody tr:nth-child(even) td{background:#f6efe0;}
+.c42p5-tbl b{color:#8b2500;}
+.c42p5-note{font-size:12px;color:#5a4e3a;line-height:1.9;background:#f6efe0;border-left:3px solid #c4956a;border-radius:0 6px 6px 0;padding:10px 13px;margin:4px 0 0;}
+.c42p5-note b{color:#8b2500;}
+@media(max-width:900px){.c42p5-fabbox{right:14px;}.c42p5-tbl{font-size:11.5px;}.c42p5-card{padding:26px 14px 16px;}}
+</style>
+<div class="c42p5-fabbox" id="c42p5Box"><button class="c42p5-btn" id="c42p5Btn" type="button" aria-label="開啟全景總表"><span class="c42p5-ic">▦</span><span class="c42p5-ls"><span class="c42p5-l1">本品 · 不受三昧</span><span class="c42p5-l2">住善生輪迴 · 十八空全頻段掃蕩</span></span></button></div><div class="c42p5-modal" id="c42p5Modal" role="dialog" aria-modal="true" aria-label="全景總表"><div class="c42p5-card"><button class="c42p5-close" id="c42p5Close" type="button" aria-label="關閉">×</button><h3>卷四十二·第五品 不受三昧 · 全景總表</h3><p class="sub">卷四十二・第五品｜住相即輪迴・二種著・迦葉起舞・不受三昧四維度・十八空</p><table class="c42p5-tbl"><caption>一、四大哲學悖論與住相輪迴閉環（本品主骨架）</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>四重叩問</td><td>善法何以生罪？既知苦何必談空？同證不受何以不共二乘？諸法本空何須十八空？——由淺入深構成完整解構鏈</td></tr><tr><td>凡夫線性道德二元論vs般若緣起閉環</td><td>凡夫以善惡直接決定苦樂果報，是線性因果；般若以是否「住相」判定是否落入輪迴機制（住相→執我→輪迴）——般若不問修善修惡，只問是否以吾我心住取受</td></tr><tr><td>善法生罪的五步動力鏈</td><td>住於善法→觸發吾我心（執我有功德）→為生色作諸業→結成五眾→具備受苦之載體——善法雖非罪，而生罪因緣</td></tr><tr><td>不受的本體論基礎</td><td>色是不受，若色不受則非色，性常空故——不受不是道德勸誡，而是「法無實體無物可抓」的邏輯必然</td></tr></tbody></table><table class="c42p5-tbl"><caption>二、二種著與不受三昧的四維度不共（世俗諦具體展開）</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>熱金丸喻與二種著</td><td>熱金丸雙重屬性（金可貪、熱不可取）——無常苦觀只破表層「欲著」，卻可能落入深層「見著」（法執，猶著法生見）；為離見著須分別「色相空」，連對治之藥亦須空掉</td></tr><tr><td>世間行vs具足般若</td><td>縱使修最無上法門，若以吾我心而行仍是「世間行」，不能至一切智——差別不在修什麼法，而在外修勝法之時內心是否「不受」</td></tr><tr><td>不受三昧四維度不共二乘</td><td>【量】二乘不利不深不堅固vs菩薩廣大之用；【時】二乘漏盡時方得vs菩薩久來知畢竟空；【質】二乘習氣猶存vs菩薩清淨遍知；【體】二乘法執猶存vs菩薩「不受」亦不受</td></tr><tr><td>迦葉起舞的力學證明</td><td>頭陀第一之迦葉能忍人天五欲「四面風」，卻在大菩薩福德變化力的「嵐風」前不能自安而欲起舞——證明二乘不受並不徹底，其習氣於菩薩而言即是煩惱</td></tr></tbody></table><table class="c42p5-tbl"><caption>三、十八空全頻段掃蕩·無受無住方契薩婆若（合題）</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>煩惱發生的力學公式</td><td>相（心對境產生固定標籤）→取（視標籤為實有攬取）→著（黏著）→結使（束縛煩惱）——取相著故生諸結使，煩惱源頭不在外境而在取相</td></tr><tr><td>相的隱蔽性光譜</td><td>世間法（色相等粗大欲求）→過渡（無常苦等對治相）→出世間法（陀羅尼三昧門等極微細神聖相）——凡夫執粗大色相，修行者易落極微細神聖相，皆是垢相</td></tr><tr><td>十八空全頻段掃雷系統</td><td>內空外空內外空空空大空第一義空、有為空無為空畢竟空無始空散空性空、自相空諸法空不可得空無法空有法空無法有法空——涵蓋內外有為無為，乃至連「空」本身也空掉</td></tr><tr><td>法尚應捨的終極心法</td><td>無受無住方契薩婆若——連「我已解脫」「我在修空」的微細相都不留，如同病癒後連藥與除病之痕跡也一併捨去</td></tr></tbody></table><p class="c42p5-note">本品揭示一條隱微而徹底的解構之路——般若不以善惡評判修行，而問是否「住相」：即使是最殊勝的善法、道品，一旦以吾我心而住，便啟動「住善生罪」的五步輪迴動力。論主進一步分辨「欲著」與「見著」二層煩惱：無常苦觀能破表層貪愛，卻可能讓修行者轉而執著對治法本身為實有，故須「連藥亦空」。以<b>迦葉聞菩薩伎樂幾乎起舞</b>為證，說明二乘「不受」雖真實卻不徹底、不堅固，習氣於菩薩而言仍是煩惱；唯有從「量、時、質、體」四維度看，菩薩的不受三昧才是當體即空、久來清淨、不與二乘共。全品終極落於<b>十八空</b>的全頻段掃蕩——不僅掃蕩粗大色相，也掃蕩最神聖的陀羅尼三昧相，乃至「不受」這個念頭本身也不可受，方是「法尚應捨，何況非法；無受無住，方契薩婆若」的般若究竟義。</p></div></div>
+<script id="wy-c42p5-js">(function(){
+var CH=document.querySelectorAll("section.chapter");
+var BTN=document.getElementById("c42p5Btn"),BOX=document.getElementById("c42p5Box"),MODAL=document.getElementById("c42p5Modal");
+if(!CH.length||!BTN||!BOX||!MODAL)return;
+var TARGET=4;
+function curIdx(){var lim=window.innerHeight*0.35,idx=-1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<lim)idx=i;}return idx;}
+var FSEL="#vidFab,.vid-fab,#videoFab,#wyVideoBtn,#wyFab,#wy-fab,#vid-floating,#floatingYt,.video-fab,.wy-vbtn,.wy-video-fab,.floating-yt",_fab,_ft=false;
+function fab(){if(_fab&&_fab.isConnected)return _fab;if(_ft)return _fab;_ft=true;_fab=document.querySelector(FSEL);return _fab;}
+function place(){
+  var base=null,eb=document.querySelector(".wy-ebox");
+  if(eb){var r=eb.getBoundingClientRect();if(r.height>4)base=Math.round(window.innerHeight-r.top)+8;}
+  if(base===null){var fEl=fab();if(fEl){var fr=fEl.getBoundingClientRect(),st=getComputedStyle(fEl);if(fr.height>0&&st.display!=="none"&&st.visibility!=="hidden")base=Math.round(window.innerHeight-fr.top)+10;}}
+  if(base===null)base=78;
+  BOX.style.bottom=base+"px";
+}
+function upd(){place();BOX.classList.toggle("show",curIdx()===TARGET);}
+var tk=false;function onS(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();});}}
+window.addEventListener("scroll",onS,{passive:true});window.addEventListener("resize",onS);
+BTN.addEventListener("click",function(){MODAL.classList.add("open");});
+MODAL.addEventListener("click",function(e){if(e.target===MODAL||e.target.id==="c42p5Close")MODAL.classList.remove("open");});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classList.remove("open");});
+upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-C42P5:END-->
 </body>
 </html>
